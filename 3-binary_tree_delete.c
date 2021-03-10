@@ -9,12 +9,12 @@
 void search_last_node(binary_tree_t *tree, binary_tree_t *current)
 {
 
-	if ( (current->left) != NULL)
+	if (current->left != NULL)
 	{
 		current = current->left;
 		search_last_node(tree, current);
 	}
-	else if ( (current->right) != NULL)
+	else if (current->right != NULL)
 	{
 		current = current->right;
 		search_last_node(tree, current);
