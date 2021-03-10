@@ -47,25 +47,9 @@ void search_last_node(binary_tree_t *tree, binary_tree_t *current)
 
 void binary_tree_delete(binary_tree_t *tree)
 {
-	binary_tree_t *temp = NULL;
-
 	if (tree == NULL)
 		return;
-	if (tree->left != NULL)
-	{
-		temp = tree->left;
-		search_last_node(tree, temp);
-		binary_tree_delete(tree);
-	}
-	else if (tree->right != NULL)
-	{
-		temp = tree->right;
-		search_last_node(tree, temp);
-		binary_tree_delete(tree);
-	}
-	else
-	{
-		free(temp);
-		free(tree);
-	}
+	binary_tree_delete(tree->left);
+	binary_tree_delete(tree->right);
+	free(tree);
 }
